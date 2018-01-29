@@ -11,23 +11,19 @@ import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame implements ActionListener{
 	
 
-	public Main() throws IOException{
+	private Main() throws IOException{
 		JFrame theGUI = new JFrame();
 		theGUI.setTitle("RPS");
 		theGUI.setSize(700, 720);
 		theGUI.setLocationRelativeTo(null);
-		theGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		theGUI.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		theGUI.setVisible(true);
 		JPanel panel = new JPanel();
 		
@@ -93,7 +89,7 @@ public class Main extends JFrame implements ActionListener{
 		
 	}
 	
-	public void Open(Move s) {
+	private void Open(Move s) {
 		Random rand = new Random();
 		rand.setSeed(System.nanoTime());
 		int  c = rand.nextInt(Move.values().length);
@@ -202,15 +198,17 @@ public class Main extends JFrame implements ActionListener{
         panel2.add(presult);
         panel2.add(cresult);
 
-		if (winner.equals("It's a tie")){
-			result.setForeground(Color.DARK_GRAY);
-		}
-		else if (winner.equals("You Win")){
-			result.setForeground(Color.GREEN);
-		}
-		else{
-			result.setForeground(Color.RED);
-		}
+        switch (winner) {
+            case "It's a tie":
+                result.setForeground(Color.DARK_GRAY);
+                break;
+            case "You Win":
+                result.setForeground(Color.GREEN);
+                break;
+            default:
+                result.setForeground(Color.RED);
+                break;
+        }
 
         panel2.add(result);
 

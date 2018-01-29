@@ -9,7 +9,7 @@ public enum Move {
 	
 	private String name;
 	
-	private Move(String name) {
+	Move(String name) {
 		this.name = name;
 	}
 	

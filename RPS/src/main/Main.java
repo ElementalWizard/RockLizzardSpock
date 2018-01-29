@@ -32,10 +32,10 @@ public class Main extends JFrame implements ActionListener{
 		JPanel panel = new JPanel();
 		
 		panel.setSize(700, 700);
- 
-		
-		BufferedImage img = ImageIO.read(new File("C:/Users/alexa/Desktop/code/java code/Games/RPS/src/main/bg1.png"));
-		
+
+
+		BufferedImage img = ImageIO.read(new File("D:/Code/Java/RockLizzardSpock/RPS/src/bg1.png"));
+
 		theGUI.setContentPane(new JLabel(new ImageIcon(img)));
 		
 		theGUI.add(panel);
@@ -195,25 +195,28 @@ public class Main extends JFrame implements ActionListener{
 		JLabel cresult = new JLabel("The computer played: " + com );
 		
 
-		panel2.add(presult);
-		panel2.add(cresult);
-		panel2.add(result);
+
 		presult.setForeground(Color.MAGENTA);
 		cresult.setForeground(Color.ORANGE);
-		
-		if (winner == "Well, its tie... Thats a first."){
+
+        panel2.add(presult);
+        panel2.add(cresult);
+
+		if (winner.equals("It's a tie")){
 			result.setForeground(Color.DARK_GRAY);
 		}
-		else if (winner == "You win this round."){
+		else if (winner.equals("You Win")){
 			result.setForeground(Color.GREEN);
 		}
-		else if (winner == "You lost."){
+		else{
 			result.setForeground(Color.RED);
 		}
-		
-		panel2.setBorder(new LineBorder(Color.BLACK));
+
+        panel2.add(result);
+
+        panel2.setBorder(new LineBorder(Color.BLACK));
 		gui2.add(panel2,new GridBagConstraints());
-		gui2.setSize(1200, 720);
+		gui2.setSize(400, 100);
 		panel2.setBackground(Color.BLUE);
 		gui2.setLocationRelativeTo(null);
 		gui2.setVisible(true);
